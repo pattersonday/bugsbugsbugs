@@ -1,0 +1,11 @@
+<h1>Tickets and Such</h1>
+
+<ul style='list-style:none'>
+    {% for data in ticket %}
+    
+        <h1>{{ data.title }}</h1>
+        <h2>{{ data.description }}</h2>
+        <h4>{{ data.post_date }}</h4>
+
+    {% endfor %}
+</ul>
