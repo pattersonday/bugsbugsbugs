@@ -23,5 +23,7 @@ admin.site.register(Tickets)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='homepage')
+    path('', views.index, name='homepage'),
+    path('newticketform/', views.NewTicketFormView,
+         name='newticketform')
 ]

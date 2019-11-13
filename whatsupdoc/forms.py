@@ -11,7 +11,7 @@ class AddingNewTicketForm(forms.ModelForm):
             'ticket_status'
         ]
         widgets = {
-            'ticket_status': forms.RadioSelect
+            'ticket': forms.RadioSelect
         }
 
 
