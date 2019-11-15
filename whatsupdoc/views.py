@@ -10,14 +10,13 @@ from .forms import AddingNewTicketForm, LoginForm
 def index(request):
     html = 'index.html'
 
-    ticket = Tickets.objects.all()
-    new = ticket.filter(
+    new = Tickets.objects.filter(
         ticket_status='New').order_by('-post_date')
-    in_progress = ticket.filter(
+    in_progress = Tickets.objects.filter(
         ticket_status='In Progress').order_by('-post_date')
-    done = ticket.filter(
+    done = Tickets.objects.filter(
         ticket_status='Done').order_by('-post_date')
-    invalid = ticket.filter(
+    invalid = Tickets.objects.filter(
         ticket_status='Invalid').order_by('-post_date')
 
     return render(request, html, {
@@ -51,7 +50,7 @@ def NewTicketFormView(request):
     return render(request, html, {'form': form})
 
 
-def DevPersonView(request, id):
+def dev_person_view(request, id):
     html = 'devperson.html'
 
     created = Tickets.objects.filter(created_by=id)
@@ -62,6 +61,14 @@ def DevPersonView(request, id):
                   {'created': created,
                    'assigned': assigned,
                    'completed': completed})
+
+
+def TicketDetailView(request, id):
+    html = 'ticket.html'
+
+    ticket = Tickets.objects.filter(id=id)
+
+    return render(request, html, {'ticket': ticket})
 
 
 def LoginView(request):
@@ -106,6 +113,24 @@ def EditTicketView(request, id):
             instance=instance
             )
         form.save()
+
+        if instance.ticket_status == 'Done':
+            instance.completed_by = instance.assigned_by
+            instance.assigned_by = None
+            form.save()
+        elif instance.ticket_status == 'Invalid':
+            instance.assigned_by = None
+            instance.completed_by = None
+            form.save()
+        elif instance.ticket_status == 'In Progress' and instance.assigned_by is None:
+            instance.assigned_by = instance.created_by
+            instance.completed_by = None
+            form.save()
+        elif instance.assigned_by is not None:
+            instance.ticket_status = 'In Progress'
+            instance.completed_by = None
+            form.save()
+
 
         return HttpResponseRedirect(reverse('homepage'))
 

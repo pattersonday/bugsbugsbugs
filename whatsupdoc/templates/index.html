@@ -5,44 +5,64 @@
 
 <ul style='list-style:none'>
     {% for data in new %}
-    
-        <h1>{{ data.title }}</h1>
+        <a href='/edit/{{ data.id }}/'>Edit</a>
+        <h1>
+            <a href='/ticket/{{ data.id }}/'>{{data.title}}</a>
+        </h1>
         <h2>{{ data.description }}</h2>
         <h3>{{ data.ticket_status }}</h3>
         <h4>{{ data.post_date }}</h4>
+        <h3>{{ data.created_by }}</h3>
+        <h3>{{ data.assigned_by }}</h3>
+        <h3>{{ data.completed_by }}</h3>
 
     {% endfor %}
 </ul>
 
 <ul style='list-style:none'>
     {% for data in in_progress %}
-    
-        <h1>{{ data.title }}</h1>
+        <a href='/edit/{{ data.id }}/'>Edit</a>
+        <h1>
+            <a href='/ticket/{{ data.id }}/'>{{data.title}}</a>
+        </h1>
         <h2>{{ data.description }}</h2>
         <h3>{{ data.ticket_status }}</h3>
         <h4>{{ data.post_date }}</h4>
+        <h3>{{ data.created_by }}</h3>
+        <h3>{{ data.assigned_by }}</h3>
+        <h3>{{ data.completed_by }}</h3>
 
     {% endfor %}
 </ul>
 
 <ul style='list-style:none'>
     {% for data in done %}
-    
-        <h1>{{ data.title }}</h1>
+        <a href='/edit/{{ data.id }}/'>Edit</a>
+        <h1>
+            <a href='/ticket/{{ data.id }}/'>{{data.title}}</a>
+        </h1>
         <h2>{{ data.description }}</h2>
         <h3>{{ data.ticket_status }}</h3>
         <h4>{{ data.post_date }}</h4>
+        <h3>{{ data.created_by }}</h3>
+        <h3>{{ data.assigned_by }}</h3>
+        <h3>{{ data.completed_by }}</h3>
 
     {% endfor %}
 </ul>
 
 <ul style='list-style:none'>
     {% for data in invalid %}
-    
-        <h1>{{ data.title }}</h1>
+        <a href='/edit/{{ data.id }}/'>Edit</a>
+        <h1>
+            <a href='/ticket/{{ data.id }}/'>{{data.title}}</a>
+        </h1>
         <h2>{{ data.description }}</h2>
         <h3>{{ data.ticket_status }}</h3>
         <h4>{{ data.post_date }}</h4>
+        <h3>{{ data.created_by }}</h3>
+        <h3>{{ data.assigned_by }}</h3>
+        <h3>{{ data.completed_by }}</h3>
 
     {% endfor %}
 </ul>
