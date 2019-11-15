@@ -8,7 +8,8 @@ class AddingNewTicketForm(forms.ModelForm):
         fields = [
             'title',
             'description',
-            'ticket_status'
+            'ticket_status',
+            'assigned_by'
         ]
         widgets = {
             'ticket': forms.RadioSelect
@@ -16,3 +17,8 @@ class AddingNewTicketForm(forms.ModelForm):
 
 
 form = AddingNewTicketForm()
+
+
+class LoginForm(forms.Form):
+    username = forms.CharField(max_length=50)
+    password = forms.CharField(widget=forms.PasswordInput)

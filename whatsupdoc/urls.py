@@ -25,5 +25,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='homepage'),
     path('newticketform/', views.NewTicketFormView,
-         name='newticketform')
-]
+         name='newticketform'),
+    # path('devperson/', views.DevPersonView, name='devperson'),
+    path('login/', views.LoginView, name='login'),
+    path('logout/', views.LogoutView, name='logout'),
+    path('edit/<int:id>/', views.EditTicketView, name='edit'),
+    path('dev/<int:id>/', views.DevPersonView, name='dev')]

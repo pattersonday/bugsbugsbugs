@@ -1,11 +1,47 @@
 <a href='/newticketform/'>New Ticket</a>
+<a href='/login/'>Login</a>
+<a href='/logout/'>Logout</a>
 <h1>Tickets and Such</h1>
 
 <ul style='list-style:none'>
-    {% for data in ticket %}
+    {% for data in new %}
     
         <h1>{{ data.title }}</h1>
         <h2>{{ data.description }}</h2>
+        <h3>{{ data.ticket_status }}</h3>
+        <h4>{{ data.post_date }}</h4>
+
+    {% endfor %}
+</ul>
+
+<ul style='list-style:none'>
+    {% for data in in_progress %}
+    
+        <h1>{{ data.title }}</h1>
+        <h2>{{ data.description }}</h2>
+        <h3>{{ data.ticket_status }}</h3>
+        <h4>{{ data.post_date }}</h4>
+
+    {% endfor %}
+</ul>
+
+<ul style='list-style:none'>
+    {% for data in done %}
+    
+        <h1>{{ data.title }}</h1>
+        <h2>{{ data.description }}</h2>
+        <h3>{{ data.ticket_status }}</h3>
+        <h4>{{ data.post_date }}</h4>
+
+    {% endfor %}
+</ul>
+
+<ul style='list-style:none'>
+    {% for data in invalid %}
+    
+        <h1>{{ data.title }}</h1>
+        <h2>{{ data.description }}</h2>
+        <h3>{{ data.ticket_status }}</h3>
         <h4>{{ data.post_date }}</h4>
 
     {% endfor %}

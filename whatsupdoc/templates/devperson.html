@@ -1,0 +1,10 @@
+<ul style='list-style:none'>
+    {% for data in created %}
+    
+        <h1>{{ data.title }}</h1>
+        <h2>{{ data.description }}</h2>
+        <h3>{{ data.ticket_status }}</h3>
+        <h4>{{ data.post_date }}</h4>
+
+    {% endfor %}
+</ul>
