@@ -1,7 +1,7 @@
 from django.shortcuts import HttpResponseRedirect, render, reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 
 from .models import Tickets
 from .forms import AddingNewTicketForm, LoginForm
@@ -27,7 +27,7 @@ def index(request):
         })
 
 
-# @login_required
+@login_required
 def NewTicketFormView(request):
     html = 'genericform.html'
 
@@ -50,6 +50,7 @@ def NewTicketFormView(request):
     return render(request, html, {'form': form})
 
 
+@login_required
 def dev_person_view(request, id):
     html = 'devperson.html'
 
@@ -63,6 +64,7 @@ def dev_person_view(request, id):
                    'completed': completed})
 
 
+@login_required
 def TicketDetailView(request, id):
     html = 'ticket.html'
 
@@ -102,6 +104,7 @@ def LogoutView(request):
     return HttpResponseRedirect(reverse('homepage'))
 
 
+@login_required
 def EditTicketView(request, id):
     html = 'genericform.html'
 
@@ -130,7 +133,6 @@ def EditTicketView(request, id):
             instance.ticket_status = 'In Progress'
             instance.completed_by = None
             form.save()
-
 
         return HttpResponseRedirect(reverse('homepage'))
 
