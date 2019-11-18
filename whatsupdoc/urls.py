@@ -24,10 +24,10 @@ admin.site.register(Tickets)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='homepage'),
-    path('newticketform/', views.NewTicketFormView,
+    path('newticketform/', views.new_ticket_form_view,
          name='newticketform'),
-    path('login/', views.LoginView, name='login'),
-    path('logout/', views.LogoutView, name='logout'),
-    path('edit/<int:id>/', views.EditTicketView, name='edit'),
+    path('login/', views.login_view, name='login'),
+    path('logout/', views.logout_view, name='logout'),
+    path('edit/<int:id>/', views.edit_ticket_view, name='edit'),
     path('dev/<int:id>/', views.dev_person_view, name='dev'),
-    path('ticket/<int:id>/', views.TicketDetailView, name='ticket')]
+    path('ticket/<int:id>/', views.ticket_detail_view, name='ticket')]

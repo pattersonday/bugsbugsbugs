@@ -2,7 +2,7 @@ from django import forms
 from .models import Tickets
 
 
-class AddingNewTicketForm(forms.ModelForm):
+class adding_new_ticket_form(forms.ModelForm):
     class Meta:
         model = Tickets
         fields = [
@@ -16,9 +16,9 @@ class AddingNewTicketForm(forms.ModelForm):
         }
 
 
-form = AddingNewTicketForm()
+form = adding_new_ticket_form()
 
 
-class LoginForm(forms.Form):
+class login_form(forms.Form):
     username = forms.CharField(max_length=50)
     password = forms.CharField(widget=forms.PasswordInput)

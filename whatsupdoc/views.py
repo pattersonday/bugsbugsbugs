@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 # from django.contrib.auth.models import User
 
 from .models import Tickets
-from .forms import AddingNewTicketForm, LoginForm
+from .forms import adding_new_ticket_form, login_form
 
 
 def index(request):
@@ -28,11 +28,11 @@ def index(request):
 
 
 @login_required
-def NewTicketFormView(request):
+def new_ticket_form_view(request):
     html = 'genericform.html'
 
     if request.method == 'POST':
-        form = AddingNewTicketForm(request.POST)
+        form = adding_new_ticket_form(request.POST)
 
         if form.is_valid():
             data = form.cleaned_data
@@ -45,7 +45,7 @@ def NewTicketFormView(request):
             )
             return HttpResponseRedirect(reverse('homepage'))
 
-    form = AddingNewTicketForm()
+    form = adding_new_ticket_form()
 
     return render(request, html, {'form': form})
 
@@ -65,7 +65,7 @@ def dev_person_view(request, id):
 
 
 @login_required
-def TicketDetailView(request, id):
+def ticket_detail_view(request, id):
     html = 'ticket.html'
 
     ticket = Tickets.objects.filter(id=id)
@@ -73,11 +73,11 @@ def TicketDetailView(request, id):
     return render(request, html, {'ticket': ticket})
 
 
-def LoginView(request):
+def login_view(request):
     html = 'genericform.html'
 
     if request.method == 'POST':
-        form = LoginForm(request.POST)
+        form = login_form(request.POST)
 
         if form.is_valid():
             data = form.cleaned_data
@@ -94,24 +94,24 @@ def LoginView(request):
                     )
                 )
 
-    form = LoginForm()
+    form = login_form()
 
     return render(request, html, {'form': form})
 
 
-def LogoutView(request):
+def logout_view(request):
     logout(request)
     return HttpResponseRedirect(reverse('homepage'))
 
 
 @login_required
-def EditTicketView(request, id):
+def edit_ticket_view(request, id):
     html = 'genericform.html'
 
     instance = Tickets.objects.get(id=id)
 
     if request.method == 'POST':
-        form = AddingNewTicketForm(
+        form = adding_new_ticket_form(
             request.POST,
             instance=instance
             )
@@ -136,6 +136,6 @@ def EditTicketView(request, id):
 
         return HttpResponseRedirect(reverse('homepage'))
 
-    form = AddingNewTicketForm(instance=instance)
+    form = adding_new_ticket_form(instance=instance)
 
     return render(request, html, {'form': form})
