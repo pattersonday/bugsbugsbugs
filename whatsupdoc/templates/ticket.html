@@ -13,9 +13,15 @@
         <h2>{{ data.description }}</h2>
         <h3>{{ data.ticket_status }}</h3>
         <h4>{{ data.post_date }}</h4>
-        <h3>{{ data.created_by }}</h3>
-        <h3>{{ data.assigned_by }}</h3>
-        <h3>{{ data.completed_by }}</h3>
+        <h3>
+            <a href='/dev/{{ data.id }}/'>{{ data.created_by }}</a>
+        </h3>
+        <h3>
+            <a href='/dev/{{ data.id }}/'>{{ data.assigned_by }}</a>
+        </h3>
+        <h3>
+            <a href='/dev/{{ data.id }}/'>{{ data.completed_by }}</a>
+        </h3>
     
     {% endfor %}
 </ul>

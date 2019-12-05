@@ -1,4 +1,5 @@
 <a href='/newticketform/'>New Ticket</a>
+<a href='/devperson/'>Dev Person</a>
 <a href='/login/'>Login</a>
 <a href='/logout/'>Logout</a>
 <h1>Tickets and Such</h1>
@@ -10,9 +11,15 @@
             <a href='/ticket/{{ data.id }}/'>{{data.title}}</a>
         </h1>
         <h3>{{ data.ticket_status }}</h3>
-        <h3>{{ data.assigned_by }}</h3>
-        <h3>{{ data.completed_by }}</h3>
-        <h3>{{ data.created_by }}</h3>
+        <h3>
+            <a href='/dev/{{ data.id }}/'>{{ data.assigned_by }}</a>
+        </h3>
+        <h3>
+            <a href='/dev/{{ data.id }}/'>{{ data.completed_by }}</a>
+        </h3>
+        <h3>
+            <a href='/dev/{{ data.id}}/'>{{ data.created_by }}</a>
+        </h3>
 
     {% endfor %}
 </ul>
@@ -24,8 +31,12 @@
             <a href='/ticket/{{ data.id }}/'>{{data.title}}</a>
         </h1>
         <h3>{{ data.ticket_status }}</h3>
-        <h3>{{ data.assigned_by }}</h3>
-        <h3>{{ data.completed_by }}</h3>
+        <h3>
+            <a href='/dev/{{ data.id }}/'>{{ data.assigned_by }}</a>
+        </h3>
+        <h3>
+            <a href='/dev/{{ data.id }}/'>{{ data.completed_by }}</a>
+        </h3>
 
     {% endfor %}
 </ul>
@@ -37,8 +48,12 @@
             <a href='/ticket/{{ data.id }}/'>{{data.title}}</a>
         </h1>
         <h3>{{ data.ticket_status }}</h3>
-        <h3>{{ data.assigned_by }}</h3>
-        <h3>{{ data.completed_by }}</h3>
+        <h3>
+            <a href='/dev/{{ data.id }}/'>{{ data.assigned_by }}</a>
+        </h3>
+        <h3>
+            <a href='/dev/{{ data.id }}/'>{{ data.completed_by }}</a>
+        </h3>
 
     {% endfor %}
 </ul>
@@ -50,8 +65,12 @@
             <a href='/ticket/{{ data.id }}/'>{{data.title}}</a>
         </h1>
         <h3>{{ data.ticket_status }}</h3>
-        <h3>{{ data.assigned_by }}</h3>
-        <h3>{{ data.completed_by }}</h3>
+        <h3>
+            <a href='/dev/{{ data.id }}/'>{{ data.assigned_by }}</a>
+        </h3>
+        <h3>
+            <a href='/dev/{{ data.id }}/'>{{ data.completed_by }}</a>
+        </h3>
 
     {% endfor %}
 </ul>
